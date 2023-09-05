@@ -1,6 +1,10 @@
 {
   "name": "target-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "18.x",
+    "npm": "^8.19.2"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
