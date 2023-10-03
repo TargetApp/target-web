@@ -4,11 +4,13 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { RegisterComponent } from '../register/register.component';
 import { InputMaskModule } from 'primeng/inputmask';
+import { ToastModule } from 'primeng/toast';
+import { ValidateLoginComponent } from '../validate-login/validate-login.component';
 
 @NgModule({
     imports: [
@@ -18,12 +20,15 @@ import { InputMaskModule } from 'primeng/inputmask';
         CheckboxModule,
         InputTextModule,
         FormsModule,
+        ReactiveFormsModule,
         PasswordModule,
-        InputMaskModule
+        InputMaskModule,
+        ToastModule,
     ],
     declarations: [
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      ValidateLoginComponent
     ]
 })
 export class LoginModule { }
