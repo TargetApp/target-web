@@ -1,0 +1,64 @@
+.custom-input {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  border-radius: 18px;
+  width: 100%;
+}
+
+.custom-text-input:focus {
+  box-shadow: none; /* Remover a sombra ao focar */
+}
+
+/* Adicionar borda à esquerda de cada pseudo-campo, exceto o primeiro */
+.custom-text-input:not(:first-child) {
+  border-left: 1px solid #000;
+  margin-left: -1px; /* Correção para a sobreposição da borda */
+}
+
+.tel-label {
+  color: var(--primary, #334A45);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  flex-shrink: 0;
+  margin-bottom: 5px;
+}
+
+.tel-input-label {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.bt-getIn {
+  margin-top: 7px;
+  width: 131px;
+  height: 50px;
+  border-radius: 18px;
+  background-color: var(--primary, #334A45);
+  color: var(--white, #fff);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+
+.desc-label {
+  color: var(--primary, #334A45);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

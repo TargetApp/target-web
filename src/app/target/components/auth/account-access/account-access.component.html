@@ -1,0 +1,39 @@
+<div class="grid align-items-center justify-content-between pb-6 gap-5">
+  <form [formGroup]="registrationForm">
+    <div class="col-12">
+      <div class="tel-label">Digite o número do seu telefone:</div>
+      <div style="text-align: center; width: 316px;">
+        <input
+          formControlName="telefone"
+          id="tel"
+          type="text"
+          placeholder="Digite o número do seu telefone"
+          pInputText
+          class="tel-input"
+        />
+      </div>
+      <div style="text-align: center;">
+        <button
+          class="bt-getIn"
+          [disabled]="!registrationForm.valid"
+          (click)="signIn()"
+        ><span class="tel-input-label">Entrar</span></button>
+      </div>
+    </div>
+
+    <div class="col-12 my-4" style="text-align: center;">
+      <span class="desc-label">
+        O acesso ao Target é realizado através<br>
+        do número do seu celular. Após inserir o <br>
+        número, você receberá um código de<br>
+        acesso via mensagem no seu telefone.
+      </span>
+    </div>
+
+    <div style="text-align: center;">
+      <div style="color: #82A126; font-size: 16px; font-family: Inter; font-weight: 700; text-decoration: underline; word-wrap: break-word">Troquei meu número do celular</div>
+    </div>
+
+  </form>
+</div>
+<p-toast></p-toast>

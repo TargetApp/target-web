@@ -1,0 +1,36 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <div class="col-12 " style="text-align: center;">
+        <span class="desc-label">
+          Selecione uma das opções abaixo para enviar uma foto ao aplicativo
+        </span>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 20px;" *ngIf="isMobile">
+        <button class="bt-getIn">
+          <span class="tel-input-label">Tirar uma foto</span>
+        </button>
+
+        <div style="width: 100%; height: 100%; text-align: center; color: #334A45; font-size: 12px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+          Essa opção abre a câmera do seu celular
+        </div>
+      </div>
+
+      <div style="width: 100%; height: 100%; text-align: center; color: #82A126; font-size: 15px; font-family: Inter; font-weight: 700; word-wrap: break-word; margin: 20px 0 20px 0;">
+        Ou
+      </div>
+
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button class="bt-getIn">
+          <span class="tel-input-label">Enviar uma foto</span>
+        </button>
+        <div style="width: 100%; height: 100%; text-align: center; color: #334A45; font-size: 12px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+          Essa opção abre a pasta de fotos do seu celular
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
