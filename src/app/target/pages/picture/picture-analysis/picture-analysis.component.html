@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="section-desc">Selecione uma das opções abaixo para<br>enviar uma foto ao aplicativo</div>
+
+  <div style="text-align: center;">
+    <button
+      class="bt-picture"
+      (click)="takePicture()"
+    ><span class="tel-input-label">Tirar uma Foto</span></button>
+  </div>
+
+  <div class="bt-desc">Essa opção abre a câmera do seu celular</div>
+
+  <div class="or-label">Ou</div>
+
+  <div style="text-align: center;">
+    <button
+      class="bt-picture"
+      (click)="getPicture(inpFile)"
+    ><span class="tel-input-label">Enviar uma Foto</span></button>
+    <input #inpFile type="file" accept="image/*" style="display: none;" (change)="submitImage($event)">
+  </div>
+
+  <div class="bt-desc">Essa opção abre a pasta de fotos do<br>seu celular</div>
+</div>
+
+<p-dialog [(visible)]="permissionDialog">
+  <ng-template pTemplate="header">
+    <div class="dialog-title">Deseja permitir o Target a ter<br>acesso a sua pasta de fotos?</div>
+  </ng-template>
+
+  <div style="text-align: center;">
+    <button
+      class="bt-confirm"
+      (click)="allowGalleryAccess(inpFile)"
+    ><span class="tel-input-label">Sim</span></button>
+  </div>
+
+  <div style="text-align: center; margin-top: 24px;"><a href="" class="a-confirm">Permitir acesso somente a <br/>fotos selecionadas</a></div>
+  <div style="text-align: center; margin-top: 45px;"><a href="" class="a-denie">Não Permitir</a></div>
+</p-dialog>

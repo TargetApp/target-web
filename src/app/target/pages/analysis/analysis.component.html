@@ -1,0 +1,57 @@
+<div class="card">
+  <div>
+    <div class="flex justify-content-between">
+      <div class="title">{{reportDetails.month}}</div>
+      <button pButton icon="fas fa-chevron-left" style="font-size: 20px; margin-bottom: 5px;" class="p-button-rounded p-button-text" (click)="returnPage()"></button>
+    </div>
+    <hr style="color: #334A45; margin-top: 0;">
+  </div>
+
+  <div>
+    <div class="text"><span style="color: #82A126;">{{reportDetails.analysisAmount}} </span>análises realizadas</div>
+    <div class="text"><span style="color: #82A126;">{{reportDetails.diseaseAmount}} </span>doenças encontradas neste mês</div>
+  </div>
+
+  <div class="card mb-3" style="background-color: #334A45;">
+    <div class="info flex" *ngFor="let item of reportDetails.mostCommonDiseases">
+      <span style="color: #82A126;">
+        {{item.percentage}}%
+      </span>
+      <div>{{item.diseaseName}}</div>
+      <!-- <hr> -->
+    </div>
+    <div *ngIf="reportDetails.analysisAmount === 0">
+      <div class="info" style="text-align: center;">Nenhuma análise realizada neste mês!</div>
+    </div>
+  </div>
+
+  <p-calendar [style]="{'width': '100%'}" [inline]="true" [showWeek]="false" (onMonthChange)="getReportDetailsByMonth($event.month!)">
+    <ng-template pTemplate="date" let-date>
+      <span [ngStyle]="{
+              'border-radius': '50%',
+              'background': isDateIncluded(date) ? '#82A126' : 'white',
+              display: 'inline-block',
+              width: '33px',
+              height: '33px',
+              'line-height': '33px',
+              'text-align': 'center',
+              color: isDateIncluded(date) ? '#ffffff' : '#C0C0C0',
+              cursor: isDateIncluded(date) ? 'pointer' : 'default'
+            }"
+            (click)="isDateIncluded(date) ? onSelect(date) : null">
+        {{date.day}}
+      </span>
+    </ng-template>
+  </p-calendar>
+</div>
+
+<div class="card">
+  <div class="flex">
+    <span style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; background-color: #82A126;"></span>
+    <div class="text-info mt-2 ml-3">Significa que há relatórios nesta data</div>
+  </div>
+  <div class="flex mt-4">
+    <span style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; background-color: #ffffff; border: 1px solid;"></span>
+    <div class="text-info mt-2 ml-3">Não há relatórios nesta data</div>
+  </div>
+</div>

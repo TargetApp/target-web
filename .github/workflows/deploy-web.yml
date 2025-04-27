@@ -1,0 +1,49 @@
+name: Build and Deploy target-web Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: docker build -t target-web:latest .
+
+      - name: Save Docker image to tar file
+        run: docker save target-web:latest -o target-web.tar
+
+      - name: Upload Docker image tar to VPS
+        uses: appleboy/scp-action@v0.1.1
+        with:
+          source: "target-web.tar"
+          target: "/home/${{ secrets.VPS_USER }}/"
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+
+      - name: Load Docker image on VPS and run container
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            cd /home/${{ secrets.VPS_USER }}/
+            docker stop target-web || true
+            docker rm -f target-web || true
+            docker rmi -f target-web || true
+            docker load -i target-web.tar
+            docker run --name target-web -d -p 8081:8081 target-web
+            rm target-web.tar

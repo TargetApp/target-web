@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="justify-content-between flex mb-4">
+    <div class="flex">
+      <p-avatar icon="fas fa-chart-bar" size="large"></p-avatar>
+      <div class="header ml-3">Meus Relatórios</div>
+    </div>
+    <div>
+      <button pButton icon="fas fa-chevron-left" style="font-size: 20px;" class="p-button-rounded p-button-text" (click)="returnPage()"></button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="mt-7" style="height: 150px; text-align: center;">
+    <p-progressSpinner
+      styleClass="w-4rem h-4rem"
+      strokeWidth="8"
+      animationDuration=".5s" />
+    <div class="mt-4 text info">Aguarde...<br>Estamos carregando seus relatórios!</div>
+  </div>
+
+  <p-scrollPanel [style]="{ width: '100%', height: 'auto', 'max-height': '780px'}" styleClass="custombar1" *ngIf="!loading">
+    <div class="pt-3" *ngIf="reportList.length === 0">
+      <div class="content">
+        <div class="flex justify-content-center">
+          <div class="info">
+            <div class="error-message">Ops... <br>{{messageError}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow-4" *ngFor="let report of reportList">
+      <div class="background-image" style="background-color: #dee2e6;"></div>
+      <div class="content">
+        <div class="flex justify-content-between">
+          <div class="info">
+            <div class="id"># {{report.id}}</div>
+            <div class="title">Resultado: <span class="text">{{report.diseaseName}}</span></div>
+            <div class="title">Horário da Análise: <span class="text">{{report.createdAt | date:'shortTime'}}</span></div>
+            <div class="title">Taxa de Comprometimento da Folha: <span class="text">{{report.severity}}</span></div>
+          </div>
+          <div class="icon">
+            <button pButton icon="fas fa-external-link-alt fa-lg" class="p-button-rounded p-button-outlined" style="color: var(--primary-color); padding: 25px;" (click)="openReportDetails(report.id)">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-scrollPanel>
+</div>

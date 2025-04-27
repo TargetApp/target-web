@@ -1,0 +1,29 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden" >
+    <div class="flex flex-column align-items-center justify-content-center">
+        <img src="assets/logo/Logo_Target/logo_para_fundo_claro.png" alt="Sakai logo" class="mb-5 w-15rem flex-shrink-0">
+        <div style="border-radius:56px; padding:0.3rem; margin: 10px; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 243, 163, 0) 30%);" >
+            <div class="w-full surface-card pt-7 pb-6 px-5 sm:px-8" style="border-radius:53px;">
+                <div *ngIf="getStarted">
+                  <div class="container-start">
+                    <div class="text-center mb-7">
+                        <div class="welcome">Olá,<br/>Seja bem-vindo(a)!</div>
+                    </div>
+                    <div class="target-desc">O TARGET é um aplicativo para<br/>identificação de doenças nas folhas<br/>de café</div>
+                    <div class="get-started">
+                      <button
+                        pButton
+                        label="Vamos começar"
+                        class="p-button-rounded p-button-lg p-button-success button-start"
+                        (click)="toggleLoginAccess()">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="!getStarted">
+                  <app-account-access></app-account-access>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

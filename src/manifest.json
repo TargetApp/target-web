@@ -1,0 +1,34 @@
+{
+  "theme_color": "#75a42c",
+  "background_color": "#17423d",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "assets/icons/icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "assets/icons/icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+     "src": "assets/screenshots/browser_preview.gif",
+      "sizes": "640x320",
+      "type": "image/gif",
+      "form_factor": "wide",
+      "label": "Target App"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "pt-BR",
+  "name": "Target",
+  "short_name": "Target",
+  "start_url": "/"
+}

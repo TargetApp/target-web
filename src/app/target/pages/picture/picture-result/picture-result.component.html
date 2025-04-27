@@ -1,0 +1,36 @@
+<div class="card">
+  <div *ngIf="loading" style="text-align: center;" class="p-4">
+    <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+    <div style="text-align: center;" class="spinner-label">Aguarde!<br/>Estamos analisando a foto.</div>
+  </div>
+  <div class="mb-3" *ngIf="!loading">
+    <div class="w-full flex justify-content-between mb-3">
+      <div class="block">
+        <div class="id"># {{report.id}}</div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <button pButton icon="fas fa-chevron-left" style="font-size: 20px;" class="p-button-rounded p-button-text" (click)="returnPage()"></button>
+      </div>
+    </div>
+    <div style="text-align: center; max-width: 100%;">
+      <img class="responsive-image" src="data:image/jpeg;base64,{{report.imageBase64}}" />
+    </div>
+
+    <div style="text-align: center;" class="mt-4 mb-2"><span class="disease-name">O Diagnóstico é </span><span class="disease-cf-name" style="font-size: 25px;">{{report.diseaseName}}</span></div>
+    <div style="text-align: center" class="mb-4"><span class="disease-desc">A Taxa de Comprometimento da Folha é<br>{{report.severity}}</span></div>
+    <div class="disease-cf-name" style="text-align: center;">DESCRIÇÃO</div>
+    <div style="text-align: center" class="mb-4"><span class="disease-desc">{{report.description}}</span></div>
+    <div class="disease-cf-name" style="text-align: center;">TRATAMENTO</div>
+    <div style="text-align: center" class="mb-4"><span class="disease-desc">{{report.treatment}}</span></div>
+    <div class="disease-cf-name" style="text-align: center;">PREVENÇÃO</div>
+    <div style="text-align: center" class="mb-4"><span class="disease-desc">{{report.prevention}}</span></div>
+    <div style="text-align: center;" class="disease-desc mb-3">Entre em contato com um dos nossos<br>técnicos para saber como realizar o<br>melhor manejo.</div>
+    <div style="text-align: center;">
+      <button
+        class="bt-picture"
+        (click)="getContacts()"
+      ><span class="sp-bt-picture">Contato dos Técnicos</span></button>
+    </div>
+    <div class="a-new-search"><a href="/">Fazer uma nova pesquisa</a></div>
+  </div>
+</div>

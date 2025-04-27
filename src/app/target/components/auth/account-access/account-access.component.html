@@ -1,0 +1,45 @@
+<div class="grid align-items-center justify-content-between pb-6 gap-5" *ngIf="!loading">
+  <form [formGroup]="registrationForm">
+    <div class="col-12">
+      <div class="tel-label">Digite o seu Email:</div>
+      <div style="text-align: center;">
+        <input
+          formControlName="email"
+          id="email"
+          type="text"
+          placeholder="Informe o endereço de email"
+          pInputText
+          class="tel-input"
+        />
+      </div>
+      <div style="text-align: center;">
+        <button
+          class="bt-getIn"
+          (click)="signIn()"
+        ><span class="tel-input-label">Entrar</span></button>
+      </div>
+    </div>
+
+    <div class="col-12 my-4" style="text-align: center;">
+      <span class="desc-label">
+        O acesso ao Target é realizado através do seu email.<br>
+        Após inseri-lo, você receberá um código de<br>
+        acesso via mensagem na sua caixa de entrada.
+      </span>
+    </div>
+
+    <div style="text-align: center;">
+      <span style="color: #82A126; font-size: 16px; font-family: Inter; font-weight: 700; text-decoration: underline; word-wrap: break-word; cursor: pointer;">Esqueci meu email</span>
+    </div>
+
+  </form>
+</div>
+<div *ngIf="loading" style="width: 300px; height: 150px; text-align: center;">
+  <p-progressSpinner
+    styleClass="w-4rem h-4rem"
+    strokeWidth="8"
+    animationDuration=".5s" />
+
+  <div class="mt-4 text">Aguarde...<br>Estamos Verificando o seu Email!</div>
+</div>
+<p-toast></p-toast>

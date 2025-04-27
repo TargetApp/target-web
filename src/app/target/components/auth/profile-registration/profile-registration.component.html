@@ -1,0 +1,47 @@
+<div class="profile-label">Você é um(a)?</div>
+<form class="gap-3 mx-5" [formGroup]="registrationForm">
+    <div class="mb-3">
+      <div class="label-input" htmlFor="username">Nome / Razão Social <span class="label-input-custom">( Obrigatório )</span></div>
+      <input class="w-full" pInputText id="username" formControlName="nome"/>
+    </div>
+
+    <div class="mb-3">
+      <div class="label-input" htmlFor="cpfCnpj">CPF / CNPJ <span class="label-input-custom">( Obrigatório )</span></div>
+      <input class="w-full" pInputText id="cpfCnpj" formControlName="cpfCnpj"/>
+    </div>
+
+    <div class="mb-3">
+      <div class="label-input" htmlFor="endereco">Endereço <span class="label-input-custom">( Obrigatório )</span></div>
+      <input class="w-full" pInputText id="endereco" formControlName="endereco"/>
+    </div>
+
+    <div class="mb-5">
+      <div class="label-input" htmlFor="telefone">Telefone <span class="label-input-custom">( Obrigatório )</span></div>
+      <input class="w-full" pInputText id="telefone" formControlName="telefone"/>
+    </div>
+
+    <div *ngFor="let item of categories" class="field-checkbox mb-4">
+        <p-radioButton [inputId]="item.key" [value]="item" formControlName="tipoConta"></p-radioButton>
+        <label [for]="item.key" class="ml-2 radio-item">{{ item.name }}</label>
+    </div>
+
+</form>
+<div style="text-align: center;">
+  <button
+      class="bt-next"
+      (click)="nextStep()"
+  ><span class="tel-input-label">Continuar</span>
+</button>
+
+<p-dialog [(visible)]="modal" [closable]="false">
+  <ng-template pTemplate="header">
+    <div class="dialog-header">Cadastro Realizado com<br>Sucesso!</div>
+  </ng-template>
+
+  <div style="text-align: center;">
+    <button
+      class="bt-start"
+      (click)="startApp()"
+    ><span class="tel-input-label">Vamos Começar!</span></button>
+  </div>
+</p-dialog>>

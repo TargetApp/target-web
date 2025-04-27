@@ -1,0 +1,38 @@
+.welcome {
+  color: #82a126;
+  font-size: 28px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.target-desc {
+  color: #334a45;
+  font-size: 17px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.container-start {
+  padding: 10px;
+}
+
+.get-started {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.button-start {
+  width: 220px;
+  height: 59px;
+  background: #82a126;
+  border-radius: 18px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+}

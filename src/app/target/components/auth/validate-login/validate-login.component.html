@@ -1,0 +1,60 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <img src="assets/logo/Logo_Target/logo_para_fundo_claro.png" alt="Sakai logo" class="mb-5 w-15rem flex-shrink-0">
+    <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 243, 163, 0) 30%);">
+      <div class="w-full surface-card pt-7 pb-7 px-5 sm:px-8" style="border-radius: 53px">
+        <div *ngIf="!loading">
+          <div class="col-12">
+            <div class="tel-label">Digite abaixo o código enviado:</div>
+            <div style="text-align: center;" class="flex ml-6">
+              <div class="form_group form_pincode">
+                <input type="text" [(ngModel)]="pincode[0]" maxlength="1" pattern="[\d]*" tabindex="1" placeholder="·" autocomplete="off" (paste)="onPasteEvent($event)"  (input)="onInputEntry($event, 0)">
+                <input type="text" [(ngModel)]="pincode[1]" maxlength="1" pattern="[\d]*" tabindex="2" placeholder="·" autocomplete="off" (paste)="onPasteEvent($event)"  (input)="onInputEntry($event, 1)">
+                <input type="text" [(ngModel)]="pincode[2]" maxlength="1" pattern="[\d]*" tabindex="3" placeholder="·" autocomplete="off" (paste)="onPasteEvent($event)"  (input)="onInputEntry($event, 2)">
+                <input type="text" [(ngModel)]="pincode[3]" maxlength="1" pattern="[\d]*" tabindex="4" placeholder="·" autocomplete="off" (paste)="onPasteEvent($event)"  (input)="onInputEntry($event, 3)">
+                <input type="text" [(ngModel)]="pincode[4]" maxlength="1" pattern="[\d]*" tabindex="5" placeholder="·" autocomplete="off" (paste)="onPasteEvent($event)"  (input)="onInputEntry($event, 4)">
+              </div>
+              <div class="flex align-items-center">
+                <button pButton class="p-button-rounded p-button-text ml-2" style="color: #82A126;" icon="pi pi-times" (click)="clearInputs()"></button>
+              </div>
+            </div>
+            <div style="text-align: center;">
+              <button
+                [ngClass]="{'bt-getIn': canSubmit(), 'bt-getIn-disabled': !canSubmit()}"
+                [disabled]="!canSubmit()"
+                (click)="validateLogin()"
+              ><span class="tel-input-label">Entrar</span></button>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4 my-2" style="text-align: center;">
+            <span class="desc-label">
+              Não recebi nenhum código!
+            </span>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="color: #82A126; font-size: 16px; font-family: Inter; font-weight: 700; text-decoration: underline; word-wrap: break-word"
+                 [style.pointer-events]="canResend ? 'auto' : 'none'"
+                 [style.opacity]="canResend ? '1' : '0.5'"
+                 [style.cursor]="canResend ? 'pointer' : 'default'"
+                 (click)="resendToken()">
+              Enviar código para e-mail novamente {{canResend ? '' : '(' + countdown + 's)'}}
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="loading" style="width: 300px; height: 150px; text-align: center;">
+          <p-progressSpinner
+            styleClass="w-4rem h-4rem"
+            strokeWidth="8"
+            animationDuration=".5s" />
+
+          <div class="mt-4 text">Aguarde...<br>Estamos Validando seu Acesso!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

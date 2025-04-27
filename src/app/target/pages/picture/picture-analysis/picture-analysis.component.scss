@@ -1,0 +1,106 @@
+.bt-picture {
+  margin-top: 7px;
+  width: 191px;
+  height: 50px;
+  border-radius: 18px;
+  background-color: var(--primary, #334A45);
+  color: var(--white, #fff);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+
+.bt-confirm {
+  margin-top: 7px;
+  width: 100px;
+  height: 50px;
+  border-radius: 18px;
+  background-color: var(--primary, #334A45);
+  color: var(--white, #fff);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+
+.tel-input-label {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.bt-desc {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #334A45;
+  font-size: 12px;
+  font-family: Inter;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin-top: 5px;
+}
+
+.or-label {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #82A126;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.section-desc {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #334A45;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.dialog-title {
+  padding-right: 20px;
+  text-align: center;
+  color: #334A45;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+.a-confirm {
+  text-align: center;
+  color: #82A126;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  text-decoration: underline;
+  word-wrap: break-word
+}
+
+.a-denie {
+  color: #82A126;
+  font-size: 13px;
+  font-family: Inter;
+  font-weight: 700;
+  text-decoration: underline;
+  word-wrap: break-word
+}

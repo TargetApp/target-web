@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Target App</title>
+  <base href="/">
+  <meta charset="utf-8" />
+  <meta name="author" content="Target">
+  <meta name="description" content="O TARGET é um aplicativo para identificação de doenças nas folhas de café.">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#75a42c">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link id="theme-css" rel="stylesheet" type="text/css" href="assets/layout/styles/theme/lara-light-blue/theme.css">
+  <link id="fontawesome-css" rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css"/>
+</head>
+<body>
+  <app-root></app-root>
+  <app-pwa-install-prompt></app-pwa-install-prompt>
+  <script>
+    if ('serviceWorker' in navigator /*&& environment.production*/) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
